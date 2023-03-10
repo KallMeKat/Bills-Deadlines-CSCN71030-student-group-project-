@@ -2,6 +2,7 @@
 // Amro Belbeisi
 
 #include <stdio.h>
+#include "PlayerStats.h"
 
 int main(void)
 {
