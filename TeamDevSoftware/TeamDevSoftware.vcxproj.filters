@@ -24,12 +24,18 @@
     <ClCompile Include="Choices.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Endings.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileIO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Choices.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Endings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
