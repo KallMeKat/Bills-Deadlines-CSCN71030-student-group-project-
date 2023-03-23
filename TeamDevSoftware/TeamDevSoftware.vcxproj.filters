@@ -15,7 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c">
+    <ClCompile Include="randEventSwitch.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="randEvent.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     
@@ -60,6 +63,11 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="randEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
