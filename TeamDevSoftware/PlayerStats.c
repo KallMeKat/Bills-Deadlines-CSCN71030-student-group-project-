@@ -33,3 +33,8 @@ bool diceRoll(int stat) // action probability, probability changes based on play
 	}
 
 }
+
+int decreaseEnergy(int scale, PlayerStats stats)
+{
+	return stats.energy -= scale;
+}

@@ -1,6 +1,6 @@
-#define _CRT_SECURE_NO_WARNINGS
+//#define _CRT_SECURE_NO_WARNINGS
 #include "Menus.h"
-
+#include "game.h"
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -30,7 +30,9 @@ void Apartment(void) {
 
 				//player.day ++
 				//player.energy = 10 (refilled)
-
+			player.day++;
+			player.energy = 10;
+				
 
 
 			//if == to final day play final scene
@@ -70,11 +72,21 @@ void Cafe(void) {
 		switch (choice)
 		{
 		case '1':
+
+		if (player.energy == 0)
+		{
+			printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
+			return;
+		}
 			printf("you go study for some time, feeling a bit tired but understanding the material more");
 			//functions:
 				
 				//player.energy = 5 (decreases)
+			decreaseEnergy(1, player);
+			levelStat(player.intl);
 			    //time + 1 (not a full day gone but a section gone)
+			player.time++;
+			
 
 			break;
 		case '2':
@@ -105,12 +117,20 @@ void School(void) {
 		switch (choice)
 		{
 		case '1':
+			if (player.energy == 0)
+			{
+				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
+				return;
+			}
 			printf("you go to your classes incredibly bored about the material but feel a bit more understnading the material");
 			//functions:
-
+			
 				//player.energy = 5 (decreases)
+			decreaseEnergy(1, player);
 				// Intelligence increases 
+			levelStat(player.intl);
 				//time + 1 (not a full day gone but a section gone)
+			player.time++;
 
 			break;
 		case '2':
@@ -143,10 +163,19 @@ void Park(void) {
 		case '1':
 			printf("you go to take a walk in the part feeling much stronger in your legs after the workout");
 			//functions:
+			if (player.energy == 0)
+			{
+				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
+				return;
 
+			}
 				//player.energy = 5 (decreases)
+				decreaseEnergy(2, player);
+
 				// Strength increases
+				levelStat(player.str);
 				//time + 1 (not a full day gone but a section gone)
+				player.time++;
 
 			break;
 		case '2':
@@ -176,12 +205,22 @@ void Job(void) {
 		switch (choice)
 		{
 		case '1':
+			if (player.energy == 0)
+			{
+				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
+				return;
+			}
 			printf("you work a long tiring shift, but hey at least you get paid yippee!");
 			//functions:
 
 				//player.energy = 5 (decreases)
+				decreaseEnergy(3, player);
+
 				// gets money
+				player.cash += 5; // shit wage due to inflation
+
 				//time + 1 (not a full day gone but a section gone)
+				player.time++;
 
 			break;
 		case '2':
@@ -217,22 +256,38 @@ void MainGame() {
 			break;
 
 		case '2':
-
+			if (player.time == 7)
+			{
+				printf("Its getting late, you should go back home\n");
+				return;
+			}
 			Cafe();
 			break;
 
 		case '3':
-
+			if (player.time > 4)
+			{
+				printf("Classes are over for the day\n");
+				return;
+			}
 			School();
 			break;
 
 		case '4':
-
+			if (player.time == 7)
+			{
+				printf("Its getting late, you should go back home\n");
+				return;
+			}
 			Park();
 			break;
 
 		case '5':
-
+			if (player.time > 6)
+			{
+				printf("Shift is over for the day\n");
+				return;
+			}
 			Job();
 			break;
 

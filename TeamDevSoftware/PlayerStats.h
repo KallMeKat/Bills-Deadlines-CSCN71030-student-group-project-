@@ -6,6 +6,8 @@ typedef struct playerstats
 	//very basics for working overworld:
 	int energy;
 	int day;
+	int cash;
+	int time;
 
 
 	//others stats here 
@@ -20,4 +22,5 @@ typedef struct playerstats
 int damagePlayer(int, PlayerStats);
 int levelStat(int stat);
 int healPlayer(int scale, PlayerStats stats);
+int decreaseEnergy(int scale, PlayerStats stats);
 bool diceRoll(int stat);

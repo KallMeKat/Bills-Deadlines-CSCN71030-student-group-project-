@@ -3,10 +3,11 @@
 //Katarina Lukic
 //Naryan Sambhi
 //Aleks Gru
-#define CRT_SECURE_NO_WARNINGS
+//#define CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include "PlayerStats.h"
 #include "Menus.h"
+#include "game.h"
 #define GAMESIZE 100
 
 ///////////////// MAIN ///////////////////
@@ -26,7 +27,7 @@ int main(void)
     FILE* fp;
     size_t size = sizeof(PlayerStats);
 
-	PlayerStats player;
+	//PlayerStats player;
 
     //if no contents detected:
 

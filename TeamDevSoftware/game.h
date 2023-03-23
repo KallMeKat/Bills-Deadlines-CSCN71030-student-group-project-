@@ -1,5 +1,8 @@
 #pragma once
 
+#include "PlayerStats.h"
+PlayerStats player;
+
 void Apartment(void);
 
 void MainGame(void);
