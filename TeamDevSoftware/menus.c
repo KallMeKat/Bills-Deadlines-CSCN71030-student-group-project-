@@ -24,7 +24,7 @@ char printmenuMain(void)
 
 	return choice;
 }
-
+  
 
 char OverWorld(void)
 {
@@ -34,7 +34,10 @@ char OverWorld(void)
 	printf("\nTo choose a function, enter its label: \n");
 	printf("1. Go to apartments\n");
 	printf("2. Go to Cafe\n");
-	printf("3. Exit to main menu (will be moved to apartment loop)\n");
+	printf("3. Go to School\n");
+	printf("4. Go to the park\n");
+	printf("5. Go to your job\n ");
+	printf("6. Exit to main menu (will be moved to apartment loop)\n");
 
 	char choice;
 	printf("\nEnter Choice: ");
@@ -54,6 +57,74 @@ char ApartmentMenu(void)
 
 	printf("\nTo choose a function, enter its label: \n");
 	printf("1. Go to sleep\n");
+	printf("2. Leave\n");
+
+
+	char choice;
+	printf("\nEnter Choice: ");
+	scanf(" %c", &choice); //return to main input
+
+	return choice;
+}
+
+char CafeMenu(void)
+{
+	printf_s("\n");
+	printf_s("you are inside a lovely quant cafe with soft jazz playing in the background");
+
+	printf("\nTo choose a function, enter its label: \n");
+	printf("1. Go to study\n");
+	printf("2. Leave\n");
+
+
+	char choice;
+	printf("\nEnter Choice: ");
+	scanf(" %c", &choice); //return to main input
+
+	return choice;
+}
+
+char SchoolMenu(void)
+{
+	printf_s("\n");
+	printf_s("you are at school and have to rush to your classes ");
+
+	printf("\nTo choose a function, enter its label: \n");
+	printf("1. Go to class\n");
+	printf("2. Skip\n");
+
+
+	char choice;
+	printf("\nEnter Choice: ");
+	scanf(" %c", &choice); //return to main input
+
+	return choice;
+}
+
+char ParkMenu(void)
+{
+	printf_s("\n");
+	printf_s("you are at Allan Gardens enjoying the sun");
+
+	printf("\nTo choose a function, enter its label: \n");
+	printf("1. Go take a lovely walk\n");
+	printf("2. Leave\n");
+
+
+	char choice;
+	printf("\nEnter Choice: ");
+	scanf(" %c", &choice); //return to main input
+
+	return choice;
+}
+
+char JobMenu(void)
+{
+	printf_s("\n");
+	printf_s("you are working at your part time job - Mckhonalds");
+
+	printf("\nTo choose a function, enter its label: \n");
+	printf("1. Go work\n");
 	printf("2. Leave\n");
 
 
