@@ -134,11 +134,14 @@
     <ClCompile Include="game.c" />
     <ClCompile Include="menus.c" />
     <ClCompile Include="PlayerStats.c" />
+    <ClCompile Include="randEvent.c" />
+    <ClCompile Include="randEventSwitch.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
     <ClInclude Include="menus.h" />
     <ClInclude Include="PlayerStats.h" />
+    <ClInclude Include="randEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Choices.h" />
