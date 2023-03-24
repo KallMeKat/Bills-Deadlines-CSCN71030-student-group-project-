@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 //function for the multiple endings including the values the user has at the end of the game  
-void multipleEndigs(int morale, int strength, int day, int energy) {
+void multipleEndings(int morale, int strength, int day, int energy) {
 
 	//the user only has 7 days to complete the game, if their 
 	if (day == 7 && morale == 0) {

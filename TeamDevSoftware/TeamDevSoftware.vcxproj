@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Choices.c" />
     <ClCompile Include="Endings.c" />
     <ClCompile Include="FileIO.c" />
     <ClCompile Include="main.c" />
@@ -144,7 +143,6 @@
     <ClInclude Include="randEvent.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Choices.h" />
     <ClInclude Include="Endings.h" />
     <ClInclude Include="FileIO.h" />
   </ItemGroup>

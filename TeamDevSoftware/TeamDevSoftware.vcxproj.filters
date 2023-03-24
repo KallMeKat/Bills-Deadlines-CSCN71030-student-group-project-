@@ -21,18 +21,6 @@
     <ClCompile Include="randEvent.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    
-     <ClInclude Include="FileIO.c">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    
-     <ClInclude Include="Choices.c">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    
-     <ClInclude Include="Endings.c">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClCompile Include="PlayerStats.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -42,20 +30,23 @@
     <ClCompile Include="game.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Endings.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileIO.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-   <ClInclude Include="FileIO.h">
+    <ClInclude Include="FileIO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    
-     <ClInclude Include="Choices.h">
+    <ClInclude Include="Endings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    
-     <ClInclude Include="Endings.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    
     <ClInclude Include="PlayerStats.h">
       <Filter>Header Files</Filter>
     </ClInclude>

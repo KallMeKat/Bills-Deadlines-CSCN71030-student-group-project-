@@ -24,44 +24,6 @@ int main(void)
 //FUNCTION
 
 //willl move this out of main later
-    FILE* fp;
-    size_t size = sizeof(PlayerStats);
-
-	//PlayerStats player;
-
-    //if no contents detected:
-
-    if ((fp = fopen("game.dat", "r")) == NULL)
-    {
-		
-			player.energy = false; //false == empty / false == 0
-			player.day = false; //id of position
-		
-    }
-    else //else, if file detected, read status of the menu items and close
-    {
-		while (fp = fopen("game.dat", "r") != EOF)
-		{
-			fp = fopen("game.dat", "r");
-		}
-        fclose(fp);
-    }
-
-
-    //save to file function here
-
-    //if the file does not have any contents then there was a save failure 
-    if ((fp = fopen("game.dat", "w")) == NULL)
-        printf("SAVE FAILURE");
-    else //write to file
-    {
-		while (fp = fopen("game.dat", "w") != EOF)
-		{
-			fp = fopen("game.dat", "w");
-		}
-        //close the file to end the process
-        fclose(fp);
-    }
 
 
 	printf("starting...\n");
@@ -74,14 +36,51 @@ int main(void)
 		switch (choice)
 		{
 		case '1': printf("start program...\n");
+			PlayerStats player;
+			FILE* fp;
+			size_t size = sizeof(PlayerStats);
+
 			//start
 			//new
 				//look file save data file
-				//if found create ask if overwrite, -> if yes intialize array of player starting stats
+			//if found create ask if overwrite, -> if yes intialize array of player starting stats
+				
+			//if no contents detected:
+
+			if ((fp = fopen("game.dat", "r")) == NULL)
+			{
+
+				player.energy = false; //false == empty / false == 0
+				player.day = false; //id of position
+
+			}
+			else //else, if file detected, read status of the menu items and close
+			{
+				while (fp = fopen("game.dat", "r") != EOF)
+				{
+					fp = fopen("game.dat", "r");
+				}
+				fclose(fp);
+			}		
+		
 			//load
 				//look file save data file
 				//if non found create new, intialize array of player starting stats
 
+			//save to file function here
+
+			//if the file does not have any contents then there was a save failure 
+			if ((fp = fopen("game.dat", "w")) == NULL)
+				printf("SAVE FAILURE");
+			else //write to file
+			{
+				while (fp = fopen("game.dat", "w") != EOF)
+				{
+					fp = fopen("game.dat", "w");
+				}
+				//close the file to end the process
+				fclose(fp);
+			}
 
 			//temporary -> start game prototype directly
 			MainGame();
