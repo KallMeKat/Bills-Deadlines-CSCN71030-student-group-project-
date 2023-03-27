@@ -1,48 +1,39 @@
 ////This is where the file input /output would go 
-////Katarina Lukic 
-//#include <stdio.h>
-//
-//#define GAMESIZE 100
-//
-////player struct not implemented yet
-//
-////FUNCTION
-//
-////willl move this out of main later
-//int main(void)
-//{
-//	FILE* fp;
-//	size_t size = sizeof(PLAYER);
-//
-//	PLAYER player[GAMESIZE] = { '\0' };
-//
-//	//if no contents detected:
-//
-//	if ((fp = fopen("game.dat", "r")) == NULL)
-//	{
-//		for (int i = 0; i < 5; i++) //creating 5 empty player items
-//		{
-//			player[i].status = false; //false == empty / false == 0
-//			player[i].id = i; //id of position
-//		}
-//	}
-//	else //else, if file detected, read status of the menu items and close
-//	{
-//		fread(player, size, GAMESIZE, fp);
-//		fclose(fp);
-//	}
-//
-//
-//	//save to file function here
-//
-//	//if the file does not have any contents then there was a save failure 
-//	if ((fp = fopen("game.dat", "w")) == NULL)
-//		printf("SAVE FAILURE");
-//	else //write to file
-//	{
-//		fwrite(player, size, GAMESIZE, fp);
-//		//close the file to end the process
-//		fclose(fp);
-//	}
-//
-//}
+////Katarina Lukic
+#include <stdlib.h>
+#include <stdio.h>
+#include "PlayerStats.h"
+
+FILE* fp;
+size_t size = sizeof(PlayerStats);
+PlayerStats player[1] = { '\0' };
+
+void file_open(void) {
+	
+	if ((fp = fopen("player.dat", "r")) == NULL)
+	{
+
+		player[0].energy = 100; //initla value of the energy stat
+		player[0].cash = 0;
+		player[0].day = 0; // inital value of the days
+		player[0].time = 0;
+		player[0].cha = 0;
+	}
+	else {
+	    fread(player, size, 1, fp);
+	    fclose(fp);
+		}
+}
+
+void file_save(void) {
+
+	//if the file does not have any contents then there was a save failure 
+	if ((fp = fopen("player.dat", "w")) == NULL)
+		printf("SAVE FAILURE");
+	else //write to file
+	{
+		fwrite(player, size, 1, fp);
+		fclose(fp);
+	}
+	
+}

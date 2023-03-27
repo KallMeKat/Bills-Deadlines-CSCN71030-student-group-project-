@@ -2,13 +2,13 @@
 // Amro Belbeisi
 //Katarina Lukic
 //Naryan Sambhi
-//Aleks Gru
+//Aleks Grujicic
 //#define CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include "PlayerStats.h"
 #include "Menus.h"
 #include "game.h"
-#define GAMESIZE 100
+#include "FileIO.h"
 
 ///////////////// MAIN ///////////////////
 
@@ -36,51 +36,21 @@ int main(void)
 		switch (choice)
 		{
 		case '1': printf("start program...\n");
-			PlayerStats player;
-			FILE* fp;
-			size_t size = sizeof(PlayerStats);
 
 			//start
 			//new
 				//look file save data file
 			//if found create ask if overwrite, -> if yes intialize array of player starting stats
-				
+			file_open();
 			//if no contents detected:
 
-			if ((fp = fopen("game.dat", "r")) == NULL)
-			{
 
-				player.energy = false; //false == empty / false == 0
-				player.day = false; //id of position
-
-			}
-			else //else, if file detected, read status of the menu items and close
-			{
-				while (fp = fopen("game.dat", "r") != EOF)
-				{
-					fp = fopen("game.dat", "r");
-				}
-				fclose(fp);
-			}		
-		
 			//load
 				//look file save data file
 				//if non found create new, intialize array of player starting stats
 
 			//save to file function here
-
-			//if the file does not have any contents then there was a save failure 
-			if ((fp = fopen("game.dat", "w")) == NULL)
-				printf("SAVE FAILURE");
-			else //write to file
-			{
-				while (fp = fopen("game.dat", "w") != EOF)
-				{
-					fp = fopen("game.dat", "w");
-				}
-				//close the file to end the process
-				fclose(fp);
-			}
+			file_save();
 
 			//temporary -> start game prototype directly
 			MainGame();
