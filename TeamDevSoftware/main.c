@@ -1,31 +1,30 @@
+
+
+
+
 //Group 16
 // Amro Belbeisi
 //Katarina Lukic
 //Naryan Sambhi
 //Aleks Grujicic
 //#define CRT_SECURE_NO_WARNINGS
+
+
 #include <stdio.h>
 #include "PlayerStats.h"
 #include "Menus.h"
 #include "game.h"
-#include "FileIO.h"
 
 ///////////////// MAIN ///////////////////
 
 
+FILE* fp;
+size_t size = sizeof(PlayerStats);
+PlayerStats player[1] = { '\0' };
+
+
 int main(void)
 {
-	//needs open file
-		//or create file
-			//initalize array of player stats
-
-//player struct not implemented yet
-
-//FUNCTION
-
-//willl move this out of main later
-
-
 	printf("starting...\n");
 
 	bool continueProgram = true;
@@ -35,35 +34,45 @@ int main(void)
 
 		switch (choice)
 		{
-		case '1': printf("start program...\n");
-
-			//start
-			//new
-				//look file save data file
-			//if found create ask if overwrite, -> if yes intialize array of player starting stats
-			file_open();
-			//if no contents detected:
+		case '1':
 
 
-			//load
-				//look file save data file
-				//if non found create new, intialize array of player starting stats
+			//open file
+			if ((fp = fopen("player.dat", "r")) == NULL)
+			{
+				//initalize stats
 
-			//save to file function here
-			file_save();
+				player[0].energy = 10;
+				player[0].hp = 10;
+				player[0].day = 1;
 
-			//temporary -> start game prototype directly
-			MainGame();
+
+				player[0].cash = 0;
+				player[0].time = 0;
+				player[0].cha = 0;
+				player[0].str = 0;
+				player[0].intl = 0;
+
+			}
+			else {
+				fread(player, size, 1, fp);
+				fclose(fp);
+			}
+
+
+
+			MainGame(player); 
 
 			break;
+
 		case '2': printf("info program...\n");
-			//info
-			//how to play and what project is
-			//also add the story here?
+					//print info function
 			break;
+
 		case '3':
 			continueProgram = false;
 			break;
+
 		default:
 			printf("\ninvalid entry...\n");
 			break;
@@ -71,4 +80,15 @@ int main(void)
 	}
 	printf("\nending...\n");
 
+
+	//save file
+		//if the file does not have any contents then there was a save failure 
+		if ((fp = fopen("player.dat", "w")) == NULL)
+			printf("SAVE FAILURE");
+		else //write to file
+		{
+			fwrite(player, size, 1, fp);
+			fclose(fp);
+
+		}
 }

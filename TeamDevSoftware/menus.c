@@ -36,8 +36,8 @@ char OverWorld(void)
 	printf("2. Go to Cafe\n");
 	printf("3. Go to School\n");
 	printf("4. Go to the park\n");
-	printf("5. Go to your job\n ");
-	printf("6. Exit to main menu (will be moved to apartment loop)\n");
+	printf("5. Go to your job\n");
+	printf("6. Exit Game\n");
 
 	char choice;
 	printf("\nEnter Choice: ");

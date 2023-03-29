@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+
+//unimplemented
+
+/*
+
 //function for the multiple endings including the values the user has at the end of the game  
 void multipleEndings(int morale, int strength, int day, int energy) {
 
@@ -21,3 +26,5 @@ void multipleEndings(int morale, int strength, int day, int energy) {
 
 	}
 }
+
+*/

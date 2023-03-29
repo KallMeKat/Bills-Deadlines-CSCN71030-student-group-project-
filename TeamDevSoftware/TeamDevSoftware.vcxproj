@@ -128,7 +128,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Endings.c" />
-    <ClCompile Include="FileIO.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="game.c" />
     <ClCompile Include="menus.c" />
@@ -141,10 +140,6 @@
     <ClInclude Include="menus.h" />
     <ClInclude Include="PlayerStats.h" />
     <ClInclude Include="randEvent.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Endings.h" />
-    <ClInclude Include="FileIO.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

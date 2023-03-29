@@ -5,16 +5,7 @@
 #include <stdbool.h>
 
 ///////////////// AREAS ///////////////////
-
-
-void Apartment(void) {
-
-	printf("\n\n\n\nyou are in apartment loop\n\n\n\n");
-
-	//if day 1 play first message..
-	//if day 5 play unique message when sleeping...
-	//etc... story events are ifs based on day
-
+void Apartment(PlayerStats arr[]) {
 
 	bool continueProgram = true;
 	while (continueProgram) {
@@ -25,24 +16,16 @@ void Apartment(void) {
 		{
 		case '1':
 			printf("you go to sleep, you fill energized (plus to next day & energy)");
-			//functions:
-				//to sleep a refill energy and set day counter foward
 
-				//player.day ++
-				//player.energy = 10 (refilled)
-			player.day++;
-			player.energy = 10;
-				
+			//reset energy, time and increase day
+			increaseDay(1, arr);
+			resetEnergy(arr);
 
-
-			//if == to final day play final scene
+			printStats(arr);
 
 			break;
 		case '2':
-
-
 			printf("you leave your apartment");
-
 			continueProgram = false;
 			break;
 
@@ -53,16 +36,9 @@ void Apartment(void) {
 	}
 
 
-	//on new day when leaving play school function based off day
-	//if day 1...
-			//intellgience check
-	//if day 2...
-
 
 }
-void Cafe(void) {
-
-	printf("\n\n\n\nyou are in a cafe loop\n\n\n\n");
+void Cafe(PlayerStats arr[]) {
 
 	bool continueProgram = true;
 	while (continueProgram) {
@@ -73,24 +49,24 @@ void Cafe(void) {
 		{
 		case '1':
 
-		if (player.energy == 0)
+		if (arr[PLAYER].energy == 0)
 		{
 			printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
 			return;
+
 		}
 			printf("you go study for some time, feeling a bit tired but understanding the material more");
-			//functions:
-				
-				//player.energy = 5 (decreases)
-			decreaseEnergy(1, player);
-			levelStat(player.intl);
-			    //time + 1 (not a full day gone but a section gone)
-			player.time++;
-			
+
+			increaseTime(1, arr);
+			decreaseEnergy(1, arr);
+
+			//increase charisma 
+
+			printStats(arr);
+
 
 			break;
 		case '2':
-
 
 			printf("you leave the cafe");
 
@@ -105,9 +81,7 @@ void Cafe(void) {
 
 }
 
-void School(void) {
-
-	printf("\n\n\n\nyou are inside the school\n\n\n\n");
+void School(PlayerStats arr[]) {
 
 	bool continueProgram = true;
 	while (continueProgram) {
@@ -117,24 +91,23 @@ void School(void) {
 		switch (choice)
 		{
 		case '1':
-			if (player.energy == 0)
+			if (arr[PLAYER].energy == 0)
 			{
 				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
 				return;
 			}
+
 			printf("you go to your classes incredibly bored about the material but feel a bit more understnading the material");
-			//functions:
-			
-				//player.energy = 5 (decreases)
-			decreaseEnergy(1, player);
-				// Intelligence increases 
-			levelStat(player.intl);
-				//time + 1 (not a full day gone but a section gone)
-			player.time++;
+
+			decreaseEnergy(5, arr);
+			increaseTime(1, arr);
+
+			//increase intelligence 
+
+			printStats(arr);
 
 			break;
 		case '2':
-
 
 			printf("you leave the school");
 
@@ -149,9 +122,8 @@ void School(void) {
 
 }
 
-void Park(void) {
+void Park(PlayerStats arr[]) {
 
-	printf("\n\n\n\nyou are inside the park\n\n\n\n");
 
 	bool continueProgram = true;
 	while (continueProgram) {
@@ -162,20 +134,26 @@ void Park(void) {
 		{
 		case '1':
 			printf("you go to take a walk in the part feeling much stronger in your legs after the workout");
-			//functions:
-			if (player.energy == 0)
+
+			if (arr[PLAYER].energy == 0)
 			{
 				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
 				return;
 
 			}
-				//player.energy = 5 (decreases)
-				decreaseEnergy(2, player);
+
+
+
+			decreaseEnergy(2, decreaseEnergy);
 
 				// Strength increases
-				levelStat(player.str);
-				//time + 1 (not a full day gone but a section gone)
-				player.time++;
+				//levelStat(player.str);
+				
+
+			increaseTime(1, arr);
+
+			printStats(arr);
+
 
 			break;
 		case '2':
@@ -193,9 +171,8 @@ void Park(void) {
 	}
 }
 
-void Job(void) {
+void Job(PlayerStats arr[]) {
 
-	printf("\n\n\n\nyou are inside your job\n\n\n\n");
 
 	bool continueProgram = true;
 	while (continueProgram) {
@@ -205,22 +182,20 @@ void Job(void) {
 		switch (choice)
 		{
 		case '1':
-			if (player.energy == 0)
+			if (arr[PLAYER].energy == 0)
 			{
 				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
 				return;
 			}
+
 			printf("you work a long tiring shift, but hey at least you get paid yippee!");
 			//functions:
 
-				//player.energy = 5 (decreases)
-				decreaseEnergy(3, player);
+			decreaseEnergy(3, arr);
 
-				// gets money
-				player.cash += 5; // shit wage due to inflation
+			increaseCASH(5, arr);
 
-				//time + 1 (not a full day gone but a section gone)
-				player.time++;
+			increaseTime(1, arr);
 
 			break;
 		case '2':
@@ -239,9 +214,7 @@ void Job(void) {
 }
 
 ///////////////// GAME ///////////////////
-void MainGame() {
-
-	printf("starting...\n");
+void MainGame(PlayerStats arr[]) {
 
 	bool continueProgram = true;
 	while (continueProgram) {
@@ -252,48 +225,56 @@ void MainGame() {
 		{
 		case '1':
 
-			Apartment();
+			Apartment(arr);
 			break;
 
 		case '2':
-			if (player.time == 7)
+			if (arr[0].time == 7)
 			{
 				printf("Its getting late, you should go back home\n");
 				return;
 			}
-			Cafe();
+			Cafe(arr);
+
+
+
 			break;
 
 		case '3':
-			if (player.time > 4)
+			if (arr[0].time > 4)
 			{
 				printf("Classes are over for the day\n");
 				return;
 			}
-			School();
+			School(arr);
 			break;
 
+
 		case '4':
-			if (player.time == 7)
+			if (arr[0].time == 7)
 			{
 				printf("Its getting late, you should go back home\n");
 				return;
 			}
-			Park();
+			Park(arr);
 			break;
 
+
 		case '5':
-			if (player.time > 6)
+			if (arr[0].time > 6)
 			{
 				printf("Shift is over for the day\n");
 				return;
 			}
-			Job();
+			Job(arr);
 			break;
+
 
 		case '6':
 			continueProgram = false;
 			break;
+
+
 		default:
 			printf("\ninvalid entry...\n");
 			break;
