@@ -1,8 +1,10 @@
 //#define _CRT_SECURE_NO_WARNINGS
 #include "Menus.h"
 #include "game.h"
+#include "randEvent.h"
 #include <stdio.h>
 #include <stdbool.h>
+
 
 ///////////////// AREAS ///////////////////
 
@@ -149,7 +151,7 @@ void School(void) {
 
 }
 
-void Park(void) {
+void Park(bool RandomParkEventOccured) {
 
 	printf("\n\n\n\nyou are inside the park\n\n\n\n");
 
@@ -180,8 +182,19 @@ void Park(void) {
 			break;
 		case '2':
 
+			if (!RandomParkEventOccured == true){
 
-			printf("you leave the park");
+				printf("You decided to leave the park. As you are leaving the park ");
+
+			/////////////////Random Event///////////////
+			///////////////////////////////////////////
+			struct Encounter* head = initializeEncounters();
+			struct Encounter* randomEvent = selectEncounter(head);
+			printf("%s\n", randomEvent->description);
+			handleEvent(randomEvent, &player);
+			//////////////////////////////////////////
+			//////////////////////////////////////////
+		} else 
 
 			continueProgram = false;
 			break;
@@ -210,6 +223,14 @@ void Job(void) {
 				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
 				return;
 			}
+			//////////////////Random Event////////////////////////
+			//////////////////////////////////////////////////////
+			struct Encounter* head = initializeJobEncounters();
+			struct Encounter* randomEvent = selectEncounter(head);
+			printf("%s\n", randomEvent->description);
+			handleJobEvent(randomEvent, &player);
+			/////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////
 			printf("you work a long tiring shift, but hey at least you get paid yippee!");
 			//functions:
 
@@ -242,6 +263,12 @@ void Job(void) {
 void MainGame() {
 
 	printf("starting...\n");
+
+	bool randomParkEventOccured = false; //Not really sure where to put this so just gon put here 
+	bool randomJobEventOccured = false;
+	bool randomSchoolEventOccured = false;
+	bool randomApartmentEventOccured = false;
+	bool randomCafeEventOccured = false;
 
 	bool continueProgram = true;
 	while (continueProgram) {
@@ -279,7 +306,7 @@ void MainGame() {
 				printf("Its getting late, you should go back home\n");
 				return;
 			}
-			Park();
+			Park(randomParkEventOccured);
 			break;
 
 		case '5':

@@ -10,7 +10,7 @@
 #include "game.h"
 #define GAMESIZE 100
 
-///////////////// MAIN ///////////////////
+///////////// MAIN ///////////////////
 
 
 int main(void)
@@ -30,6 +30,7 @@ int main(void)
 	//PlayerStats player;
 
     //if no contents detected:
+
 
     if ((fp = fopen("game.dat", "r")) == NULL)
     {
@@ -82,7 +83,7 @@ int main(void)
 				//look file save data file
 				//if non found create new, intialize array of player starting stats
 
-
+		
 			//temporary -> start game prototype directly
 			MainGame();
 
