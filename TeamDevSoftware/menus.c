@@ -35,8 +35,8 @@ char OverWorld(void)
 	printf("2. Go to Cafe\n");
 	printf("3. Go to School\n");
 	printf("4. Go to the park\n");
-	printf("5. Go to your job\n ");
-	printf("6. Exit to main menu (will be moved to apartment loop)\n");
+	printf("5. Go to your job\n");
+	printf("6. Exit Game\n");
 
 	char choice;
 	printf("\nEnter Choice: ");
@@ -69,7 +69,7 @@ char ApartmentMenu(void)
 char CafeMenu(void)
 {
 	printf_s("\n");
-	printf_s("you are inside a lovely quant cafe with soft jazz playing in the background");
+	printf_s("you are inside a lovely quant cafe with soft jazz playing in the background\n");
 
 	printf("\nTo choose a function, enter its label: \n");
 	printf("1. Go to study\n");
@@ -86,7 +86,7 @@ char CafeMenu(void)
 char SchoolMenu(void)
 {
 	printf_s("\n");
-	printf_s("you are at school and have to rush to your classes ");
+	printf_s("you are at school and have to rush to your classes\n ");
 
 	printf("\nTo choose a function, enter its label: \n");
 	printf("1. Go to class\n");
@@ -103,7 +103,7 @@ char SchoolMenu(void)
 char ParkMenu(void)
 {
 	printf_s("\n");
-	printf_s("you are at Allan Gardens enjoying the sun");
+	printf_s("you are at Allan Gardens enjoying the sun\n");
 
 	printf("\nTo choose a function, enter its label: \n");
 	printf("1. Go take a lovely walk\n");
@@ -120,7 +120,7 @@ char ParkMenu(void)
 char JobMenu(void)
 {
 	printf_s("\n");
-	printf_s("you are working at your part time job - Mckhonalds");
+	printf_s("you are working at your part time job - Mckhonalds\n");
 
 	printf("\nTo choose a function, enter its label: \n");
 	printf("1. Go work\n");
@@ -132,4 +132,14 @@ char JobMenu(void)
 	scanf(" %c", &choice); //return to main input
 
 	return choice;
+}
+
+void PrintInfo(void) {
+
+	printf("Welcome to the insert name here simulator!\n\n");
+	printf("The main goal is to pay your rent on time and have the highest stats\n\n");
+	printf("The game mechanics are simple: just type in a number to traverse to a location\n\n");
+	printf("But don't dillydally around, you have a limited time per day and also need to pay your rent in a week!\n\n");
+	printf("There are multiple endings based on your stats so try to get them all, can you get the ultimate ending, its up to you :3\n\n");
+	printf("Good luck and have fun!\n\n");
 }

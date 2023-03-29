@@ -1,18 +1,18 @@
 #pragma once
 
 #include "PlayerStats.h"
-PlayerStats player;
 
-void Apartment(void);
 
-void MainGame(void);
+void Apartment(PlayerStats arr[]);
 
-void Apartment(void);
+void MainGame(PlayerStats arr[]);
 
-void Cafe(void);
+void Apartment(PlayerStats arr[]);
 
-void School(void);
+void Cafe(PlayerStats arr[]);
 
-void Park(void);
+void School(PlayerStats arr[]);
 
-void Job(void);
+void Park(PlayerStats arr[]);
+
+void Job(PlayerStats arr[]);

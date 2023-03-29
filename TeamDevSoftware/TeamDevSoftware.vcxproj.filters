@@ -13,62 +13,54 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\rand">
+      <UniqueIdentifier>{57eca302-3b48-47af-897f-d2fcc60c757b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game">
+      <UniqueIdentifier>{4026c57f-1617-4400-a06f-3ca45b149362}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\game">
+      <UniqueIdentifier>{e1349dd7-30dc-4e23-bfb9-a0756778c423}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\rand">
+      <UniqueIdentifier>{59b7f141-5413-4bce-a920-8faffff8992c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="randEventSwitch.c">
+    <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="randEvent.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\rand</Filter>
     </ClCompile>
-    
-     <ClInclude Include="FileIO.c">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    
-     <ClInclude Include="Choices.c">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    
-     <ClInclude Include="Endings.c">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClCompile Include="PlayerStats.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="randEventSwitch.c">
+      <Filter>Source Files\rand</Filter>
     </ClCompile>
-    <ClCompile Include="menus.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Endings.c">
+      <Filter>Source Files\game</Filter>
     </ClCompile>
     <ClCompile Include="game.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="menus.c">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerStats.c">
+      <Filter>Source Files\game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-   <ClInclude Include="FileIO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    
-     <ClInclude Include="Choices.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    
-     <ClInclude Include="Endings.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    
-    <ClInclude Include="PlayerStats.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="game.h">
+      <Filter>Header Files\game</Filter>
     </ClInclude>
     <ClInclude Include="menus.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\game</Filter>
     </ClInclude>
-    <ClInclude Include="game.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="PlayerStats.h">
+      <Filter>Header Files\game</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="randEvent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\rand</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

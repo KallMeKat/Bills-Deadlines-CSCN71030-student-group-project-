@@ -15,3 +15,5 @@ char ParkMenu(void);
 
 char JobMenu(void);
 
+void PrintInfo(void);
+

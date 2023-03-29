@@ -3,22 +3,109 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
-time_t t;
 
-int damagePlayer(int scale, PlayerStats stats) // decrements from players health by a specific amount
+
+
+//hp 
+
+int damagePlayer(int scale, PlayerStats stats[]) // decrements from players health by a specific amount
 {
-	return stats.hp -= scale;
+	return stats[PLAYER].hp -= scale;
 }
 
-int levelStat(int stat) // increments a specific stat by one
+int healPlayer(int scale, PlayerStats stats[]) // increments players health by a specific amount
 {
-	return stat++;
+	return stats[PLAYER].hp += scale;
 }
 
-int healPlayer(int scale, PlayerStats stats) // increments players health by a specific amount
+//energy
+int decreaseEnergy(int scale, PlayerStats stats[])
 {
-	return stats.hp += scale;
+	return stats[PLAYER].energy -= scale;
 }
+
+int increaseEnergy(int scale, PlayerStats stats[])
+{
+	return stats[PLAYER].energy += scale;
+}
+
+int resetEnergy(PlayerStats stats[])
+{
+	return stats[PLAYER].energy = 10;
+}
+
+
+//time
+int increaseTime(int scale, PlayerStats stats[])
+{
+	return stats[PLAYER].time += scale;
+}
+int decreaseTime(int scale, PlayerStats stats[])
+{
+	return stats[PLAYER].time -= scale;
+}
+
+int increaseDay(int scale, PlayerStats stats[])
+{
+	return stats[PLAYER].day += scale;
+}
+
+//money 
+
+int increaseCASH(int scale, PlayerStats stats[])
+{
+	return stats[PLAYER].cash += scale;
+}
+int decreaseCASH(int scale, PlayerStats stats[])
+{
+	return stats[PLAYER].cash -= scale;
+}
+
+
+
+// increments a specific stat by one
+
+
+
+
+int levelIntl(int scale, PlayerStats stats[])
+{
+	return stats[PLAYER].intl += scale;
+}
+
+int levelCha(int scale, PlayerStats stats[])
+{
+	return stats[PLAYER].cha += scale;
+}
+
+int levelStr(int scale, PlayerStats stats[])
+{
+	return stats[PLAYER].str += scale;
+}
+
+
+
+
+//print
+
+void printStats(PlayerStats stats[])
+{
+	printf("\n\n You have %d HP, %d ENERGY. The TIME is %d and it is DAY %d. You have %d CASH in your pocket \n\n", stats[PLAYER].hp, stats[PLAYER].energy, stats[PLAYER].time, stats[PLAYER].day, stats[PLAYER].cash);
+
+	printf("Your Stats: \n");
+	printf("\nSTR %d", stats[PLAYER].str);
+	printf("\nCHA %d", stats[PLAYER].cha);
+	printf("\nINTL %d", stats[PLAYER].cha);
+
+}
+
+
+
+
+
+//unimplemented
+
+/*
 
 bool diceRoll(int stat) // action probability, probability changes based on players level in that skill
 {
@@ -34,7 +121,4 @@ bool diceRoll(int stat) // action probability, probability changes based on play
 
 }
 
-int decreaseEnergy(int scale, PlayerStats stats)
-{
-	return stats.energy -= scale;
-}
+*/
