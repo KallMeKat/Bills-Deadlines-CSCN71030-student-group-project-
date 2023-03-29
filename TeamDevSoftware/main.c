@@ -65,8 +65,8 @@ int main(void)
 
 			break;
 
-		case '2': printf("info program...\n");
-					//print info function
+		case '2': printf("info program...\n\n");
+			PrintInfo();
 			break;
 
 		case '3':

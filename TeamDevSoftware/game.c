@@ -1,6 +1,7 @@
 //#define _CRT_SECURE_NO_WARNINGS
 #include "Menus.h"
 #include "game.h"
+#include "PlayerStats.h"
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -15,7 +16,7 @@ void Apartment(PlayerStats arr[]) {
 		switch (choice)
 		{
 		case '1':
-			printf("you go to sleep, you fill energized (plus to next day & energy)");
+			printf("you go to sleep, you fill energized (plus to next day & energy)\n");
 
 			//reset energy, time and increase day
 			increaseDay(1, arr);
@@ -25,7 +26,7 @@ void Apartment(PlayerStats arr[]) {
 
 			break;
 		case '2':
-			printf("you leave your apartment");
+			printf("you leave your apartment\n");
 			continueProgram = false;
 			break;
 
@@ -55,7 +56,7 @@ void Cafe(PlayerStats arr[]) {
 			return;
 
 		}
-			printf("you go study for some time, feeling a bit tired but understanding the material more");
+			printf("you go study for some time, feeling a bit tired but understanding the material more\n");
 
 			increaseTime(1, arr);
 
@@ -99,7 +100,7 @@ void School(PlayerStats arr[]) {
 				return;
 			}
 
-			printf("you go to your classes incredibly bored about the material but feel a bit more understnading the material");
+			printf("you go to your classes incredibly bored about the material but feel a bit more understnading the material\n");
 
 			decreaseEnergy(5, arr);
 
@@ -136,7 +137,7 @@ void Park(PlayerStats arr[]) {
 		switch (choice)
 		{
 		case '1':
-			printf("you go to take a walk in the part feeling much stronger in your legs after the workout");
+			printf("you go to take a walk in the part feeling much stronger in your legs after the workout\n");
 
 			if (arr[PLAYER].energy <= 0)
 			{
@@ -189,7 +190,7 @@ void Job(PlayerStats arr[]) {
 				return;
 			}
 
-			printf("you work a long tiring shift, but hey at least you get paid yippee!");
+			printf("you work a long tiring shift, but hey at least you get paid yippee!\n");
 			//functions:
 
 			decreaseEnergy(3, arr);
@@ -202,7 +203,7 @@ void Job(PlayerStats arr[]) {
 		case '2':
 
 
-			printf("you leave your job");
+			printf("you leave your job\n");
 
 			continueProgram = false;
 			break;
