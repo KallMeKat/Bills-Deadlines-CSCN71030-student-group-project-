@@ -49,7 +49,7 @@ void Cafe(PlayerStats arr[]) {
 		{
 		case '1':
 
-		if (arr[PLAYER].energy == 0)
+		if (arr[PLAYER].energy <= 0)
 		{
 			printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
 			return;
@@ -58,9 +58,11 @@ void Cafe(PlayerStats arr[]) {
 			printf("you go study for some time, feeling a bit tired but understanding the material more");
 
 			increaseTime(1, arr);
+
+			levelCha(1, arr);
+
 			decreaseEnergy(1, arr);
 
-			//increase charisma 
 
 			printStats(arr);
 
@@ -91,7 +93,7 @@ void School(PlayerStats arr[]) {
 		switch (choice)
 		{
 		case '1':
-			if (arr[PLAYER].energy == 0)
+			if (arr[PLAYER].energy <= 0)
 			{
 				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
 				return;
@@ -100,9 +102,10 @@ void School(PlayerStats arr[]) {
 			printf("you go to your classes incredibly bored about the material but feel a bit more understnading the material");
 
 			decreaseEnergy(5, arr);
-			increaseTime(1, arr);
 
-			//increase intelligence 
+			levelIntl(1, arr);
+
+			increaseTime(1, arr);
 
 			printStats(arr);
 
@@ -135,7 +138,7 @@ void Park(PlayerStats arr[]) {
 		case '1':
 			printf("you go to take a walk in the part feeling much stronger in your legs after the workout");
 
-			if (arr[PLAYER].energy == 0)
+			if (arr[PLAYER].energy <= 0)
 			{
 				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
 				return;
@@ -144,11 +147,9 @@ void Park(PlayerStats arr[]) {
 
 
 
-			decreaseEnergy(2, decreaseEnergy);
+			decreaseEnergy(2, arr);
 
-				// Strength increases
-				//levelStat(player.str);
-				
+			levelStr(1, arr);
 
 			increaseTime(1, arr);
 
@@ -177,12 +178,12 @@ void Job(PlayerStats arr[]) {
 	bool continueProgram = true;
 	while (continueProgram) {
 
-		char choice = ParkMenu();
+		char choice = JobMenu();
 
 		switch (choice)
 		{
 		case '1':
-			if (arr[PLAYER].energy == 0)
+			if (arr[PLAYER].energy <= 0)
 			{
 				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
 				return;
@@ -229,7 +230,7 @@ void MainGame(PlayerStats arr[]) {
 			break;
 
 		case '2':
-			if (arr[0].time == 7)
+			if (arr[0].time >= 7)
 			{
 				printf("Its getting late, you should go back home\n");
 				return;
@@ -251,7 +252,7 @@ void MainGame(PlayerStats arr[]) {
 
 
 		case '4':
-			if (arr[0].time == 7)
+			if (arr[0].time >= 7)
 			{
 				printf("Its getting late, you should go back home\n");
 				return;

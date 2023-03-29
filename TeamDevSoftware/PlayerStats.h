@@ -16,7 +16,9 @@ typedef struct playerstats
 
 	//others stats here - these are unimplemented 
 	unsigned int hp;
-	int str, cha, intl; 
+	unsigned int str;
+	unsigned int cha;
+	unsigned int intl;
 	
 
 } PlayerStats;
@@ -48,6 +50,13 @@ int increaseCASH(int scale, PlayerStats stats[]);
 
 int decreaseCASH(int scale, PlayerStats stats[]);
 
+//level stats
+
+int levelIntl(int scale, PlayerStats stats[]);
+
+int levelCha(int scale, PlayerStats stats[]);
+
+int levelStr(int scale, PlayerStats stats[]);
 
 
 //print
@@ -55,12 +64,7 @@ int decreaseCASH(int scale, PlayerStats stats[]);
 void printStats(PlayerStats stats[]);
 
 
-//OLD or UNIMPLEMENTED: 
-
-/* 
-int damagePlayer(int, PlayerStats);
-int levelStat(int stat);
-int healPlayer(int scale, PlayerStats stats);
-int decreaseEnergy(int scale, PlayerStats stats);
+//UNIMPLEMENTED: 
+/*
 bool diceRoll(int stat);
 */

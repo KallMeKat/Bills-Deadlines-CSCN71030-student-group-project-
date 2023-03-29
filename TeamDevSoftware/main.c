@@ -49,9 +49,9 @@ int main(void)
 
 				player[0].cash = 0;
 				player[0].time = 0;
-				player[0].cha = 0;
-				player[0].str = 0;
-				player[0].intl = 0;
+				player[0].cha = 1;
+				player[0].str = 1;
+				player[0].intl = 1;
 
 			}
 			else {
