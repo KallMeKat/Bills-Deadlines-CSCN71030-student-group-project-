@@ -64,7 +64,7 @@ struct Encounter* initializeJobEncounters() {
 void handleEvent(struct Encounter* event, PlayerStats** player) {
 	switch (event->id) {
 	case 1:
-		eventOne(player);
+		eventOne(&player);
 		break;
 	case 2:
 		eventTwo(player);
@@ -82,7 +82,7 @@ void handleEvent(struct Encounter* event, PlayerStats** player) {
 void handleJobEvent(struct Encounter* event, PlayerStats** player) {
 	switch (event->id) {
 	case 1:
-		eventFour(player);
+		eventFour(&player);
 		break;
 	case 2:
 		eventFive(player);
@@ -116,12 +116,12 @@ void eventOne(PlayerStats* player) {
 	switch (choice) {
 	case 1:
 		printf("You manage to run away, but you lose some energy.\n");
-		decreaseEnergy(2, *player);
+		decreaseEnergy(2, player);
 		break;
 	case 2:
 		printf("You fight back and manage to get away, but you lose some health and energy.\n");
-		damagePlayer(2, *player);
-		decreaseEnergy(3, *player);
+		damagePlayer(2, player);
+		decreaseEnergy(3, player);
 		break;
 	case 3:
 		printf("You give the homeless person some money and they leave you alone.\n");
@@ -214,8 +214,8 @@ void eventFour(PlayerStats* player) {
 	switch (choice) {
 	case 1:
 		printf("You attempt to apprehend the shoplifter, but they resist and a scuffle ensues. You manage to hold onto them until security arrives, but you sustain some injuries and lose some energy.\n");
-		damagePlayer(3, *player);
-		decreaseEnergy(4, *player);
+		damagePlayer(3, player);
+		decreaseEnergy(4, player);
 		break;
 	case 2:
 		printf("You quickly call security and give them a description of the shoplifter. Security apprehends the shoplifter without incident. You feel relieved, but also a little shaken.\n");
