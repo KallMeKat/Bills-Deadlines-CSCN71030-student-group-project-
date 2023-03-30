@@ -50,21 +50,34 @@ void Cafe(PlayerStats arr[]) {
 		switch (choice)
 		{
 		case '1':
-
 			if (arr[PLAYER].energy <= 0)
 			{
-				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
+				printf("you're too tired to continue, you need to go back home and get some sleep\n");
 				return;
 
 			}
-			printf("you go study for some time, feeling a bit tired but understanding the material more\n");
+			if (arr[PLAYER].cash <= 5)
+			{
+				printf("You go to pay only to realize you dont even have the 5$ to pay. You embarrassingly walk feeling less charismatic then before.");
 
+
+				loseCha(1, arr);
+
+				increaseTime(1, arr);
+
+				printStats(arr);
+
+				return;
+			}
+
+
+
+			printf("you purchase a fresh cup of coffee and enjoy a short conversation with the barista. You feel energize and more charismatic\n");
+
+			decreaseCASH(5, arr);
 			increaseTime(1, arr);
-
 			levelCha(1, arr);
-
-			decreaseEnergy(1, arr);
-
+			increaseEnergy(1, arr);
 
 			printStats(arr);
 
@@ -95,6 +108,11 @@ void School(PlayerStats arr[]) {
 		switch (choice)
 		{
 		case '1':
+			if (arr[0].time > 4)
+			{
+				printf("Classes are over for the day\n");
+				return;
+			}
 			if (arr[PLAYER].energy <= 0)
 			{
 				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
@@ -104,9 +122,7 @@ void School(PlayerStats arr[]) {
 			printf("you go to your classes incredibly bored about the material but feel a bit more understnading the material\n");
 
 			decreaseEnergy(5, arr);
-
 			levelIntl(1, arr);
-
 			increaseTime(1, arr);
 
 			printStats(arr);
@@ -138,8 +154,6 @@ void Park(PlayerStats arr[]) {
 		switch (choice)
 		{
 		case '1':
-			printf("you go to take a walk in the part feeling much stronger in your legs after the workout\n");
-
 			if (arr[PLAYER].energy <= 0)
 			{
 				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
@@ -147,12 +161,10 @@ void Park(PlayerStats arr[]) {
 
 			}
 
-
+			printf("you go to take a walk in the part feeling much stronger in your legs after the workout\n");
 
 			decreaseEnergy(2, arr);
-
 			levelStr(1, arr);
-
 			increaseTime(1, arr);
 
 			printStats(arr);
@@ -194,6 +206,12 @@ void Job(PlayerStats arr[]) {
 		switch (choice)
 		{
 		case '1':
+
+			if (arr[0].time > 6)
+			{
+				printf("Shift is over for the day\n");
+				return;
+			}
 			if (arr[PLAYER].energy <= 0)
 			{
 				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
@@ -201,13 +219,12 @@ void Job(PlayerStats arr[]) {
 			}
 
 			printf("you work a long tiring shift, but hey at least you get paid yippee!\n");
-			//functions:
 
 			decreaseEnergy(3, arr);
-
 			increaseCASH(5, arr);
-
 			increaseTime(1, arr);
+
+			printStats(arr);
 
 			break;
 		case '2':
@@ -236,28 +253,19 @@ void MainGame(PlayerStats arr[]) {
 		switch (choice)
 		{
 		case '1':
-
 			Apartment(arr);
 			break;
 
 		case '2':
 			if (arr[0].time >= 7)
 			{
-				printf("Its getting late, you should go back home\n");
-				return;
+				printf("Its getting late, you head back home\n");
+				Apartment(arr);
 			}
 			Cafe(arr);
-
-
-
 			break;
 
 		case '3':
-			if (arr[0].time > 4)
-			{
-				printf("Classes are over for the day\n");
-				return;
-			}
 			School(arr);
 			break;
 
@@ -265,19 +273,14 @@ void MainGame(PlayerStats arr[]) {
 		case '4':
 			if (arr[0].time >= 7)
 			{
-				printf("Its getting late, you should go back home\n");
-				return;
+				printf("Its getting late, you head back home\n");
+				Apartment(arr);
 			}
 			Park(arr);
 			break;
 
 
 		case '5':
-			if (arr[0].time > 6)
-			{
-				printf("Shift is over for the day\n");
-				return;
-			}
 			Job(arr);
 			break;
 
