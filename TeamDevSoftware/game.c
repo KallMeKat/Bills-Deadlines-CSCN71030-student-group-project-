@@ -49,12 +49,6 @@ void Cafe(PlayerStats arr[]) {
 		switch (choice)
 		{
 		case '1':
-
-			if (arr[0].time >= 7)
-			{
-				printf("Its getting late, you should go back home\n");
-				return;
-			}
 			if (arr[PLAYER].energy <= 0)
 			{
 				printf("you're too tired to continue, you need to go back home and get some sleep\n");
@@ -159,13 +153,6 @@ void Park(PlayerStats arr[]) {
 		switch (choice)
 		{
 		case '1':
-
-			if (arr[0].time >= 7)
-			{
-				printf("Its getting late, you should go back home\n");
-				return;
-			}
-
 			if (arr[PLAYER].energy <= 0)
 			{
 				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
@@ -260,6 +247,11 @@ void MainGame(PlayerStats arr[]) {
 			break;
 
 		case '2':
+			if (arr[0].time >= 7)
+			{
+				printf("Its getting late, you head back home\n");
+				Apartment(arr);
+			}
 			Cafe(arr);
 			break;
 
@@ -269,6 +261,11 @@ void MainGame(PlayerStats arr[]) {
 
 
 		case '4':
+			if (arr[0].time >= 7)
+			{
+				printf("Its getting late, you head back home\n");
+				Apartment(arr);
+			}
 			Park(arr);
 			break;
 
