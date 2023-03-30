@@ -10,6 +10,7 @@
 #include "PlayerStats.h"
 #include "Menus.h"
 #include "game.h"
+#include "randEvent.h"
 
 ///////////////// MAIN ///////////////////
 

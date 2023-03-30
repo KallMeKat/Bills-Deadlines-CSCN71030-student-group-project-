@@ -178,7 +178,7 @@ void Park(PlayerStats arr[]) {
 			struct Encounter* head = initializeEncounters();
 			struct Encounter* randomEvent = selectEncounter(head);
 			printf("%s\n", randomEvent->description);
-			handleEvent(randomEvent, &player);
+			handleEvent(randomEvent, arr);
 			//////////////////////////////////////////
 			//////////////////////////////////////////
 
@@ -217,6 +217,15 @@ void Job(PlayerStats arr[]) {
 				printf("you're too tired to continue, you neeed to go back home and get some sleep\n");
 				return;
 			}
+
+			/////////////////Random Event///////////////
+			///////////////////////////////////////////
+			struct Encounter* head = initializeJobEncounters();
+			struct Encounter* randomEvent = selectEncounter(head);
+			printf("%s\n", randomEvent->description);
+			handleJobEvent(randomEvent, arr);
+			//////////////////////////////////////////
+			//////////////////////////////////////////
 
 			printf("you work a long tiring shift, but hey at least you get paid yippee!\n");
 

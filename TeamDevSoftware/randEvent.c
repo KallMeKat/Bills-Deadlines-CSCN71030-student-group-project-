@@ -32,12 +32,13 @@ struct Encounter* selectEncounter(struct Encounter* head) {
 	return NULL;
 }
 
+
 //function that will be used to initiliaze the encounters in the actual game
 //This one initializes park Encounters
 struct Encounter* initializeEncounters() {
-	struct Encounter* head = createEncounter(1, "a homeless person pulls a knife on you.");
-	struct Encounter* second = createEncounter(2, "you are hit by a car.");
-	struct Encounter* third = createEncounter(3, "you find a hundred dollar bill on the ground.");
+	struct Encounter* head = createEncounter(1, "A homeless person pulls a knife on you. What do you do?\n");
+	struct Encounter* second = createEncounter(2, "As you are leaving the park, you spot a wallet lying on the ground. What do you do?\n");
+	struct Encounter* third = createEncounter(3, "Some random event happens?\n");
 
 	head->next = second;
 	second->next = third;
@@ -47,9 +48,9 @@ struct Encounter* initializeEncounters() {
 }
 
 struct Encounter* initializeJobEncounters() {
-	struct Encounter* head = createEncounter(4, "You catch a shoplifter in the act. What do you do?\n");
-	struct Encounter* second = createEncounter(5, "Two customers are fighting over the last TV in the store. What do you do?");
-	struct Encounter* third = createEncounter(6, "You are working at Walmart when you notice a group of teenagers attempting to steal some electronics. What do you do?");
+	struct Encounter* head = createEncounter(1, "You catch a shoplifter in the act. What do you do?\n");
+	struct Encounter* second = createEncounter(2, "Two customers are fighting over the last TV in the store. What do you do?\n");
+	struct Encounter* third = createEncounter(3, "You are working at Walmart when you notice a group of teenagers attempting to steal some electronics. What do you do?\n");
 
 	head->next = second;
 	second->next = third;
@@ -61,16 +62,16 @@ struct Encounter* initializeJobEncounters() {
 
 //function for switch case menu
 
-void handleEvent(struct Encounter* event, PlayerStats** player) {
+void handleEvent(struct Encounter* event, PlayerStats playerStats[]) {
 	switch (event->id) {
 	case 1:
-		eventOne(&player);
+		eventOne(playerStats);
 		break;
 	case 2:
-		eventTwo(player);
+		eventTwo(playerStats);
 		break;
 	case 3:
-		eventThree(player);
+		eventThree(playerStats);
 		break;
 	default:
 		printf("Unknown event!\n");
@@ -79,16 +80,16 @@ void handleEvent(struct Encounter* event, PlayerStats** player) {
 }
 
 
-void handleJobEvent(struct Encounter* event, PlayerStats** player) {
+void handleJobEvent(struct Encounter* event, PlayerStats playerStats[]) {
 	switch (event->id) {
 	case 1:
-		eventFour(&player);
+		eventFour(playerStats);
 		break;
 	case 2:
-		eventFive(player);
+		eventFive(playerStats);
 		break;
 	case 3:
-		eventSix(player);
+		eventSix(playerStats);
 		break;
 	default:
 		printf("Unknown event!\n");
@@ -103,9 +104,8 @@ void handleJobEvent(struct Encounter* event, PlayerStats** player) {
 
 
 /// Events 1-3 are park events
-void eventOne(PlayerStats* player) {
+void eventOne(PlayerStats playerStats[]) {
 
-	printf("A homeless person pulls a knife on you. What do you do?\n");
 	printf("1. Run away.\n");
 	printf("2. Fight back.\n");
 	printf("3. Give them some money.\n");
@@ -116,12 +116,12 @@ void eventOne(PlayerStats* player) {
 	switch (choice) {
 	case 1:
 		printf("You manage to run away, but you lose some energy.\n");
-		decreaseEnergy(2, player);
+		//decreaseEnergy(2, playerStats[]);
 		break;
 	case 2:
 		printf("You fight back and manage to get away, but you lose some health and energy.\n");
-		damagePlayer(2, player);
-		decreaseEnergy(3, player);
+		//damagePlayer(2, player);
+		//decreaseEnergy(3, player);
 		break;
 	case 3:
 		printf("You give the homeless person some money and they leave you alone.\n");
@@ -133,9 +133,8 @@ void eventOne(PlayerStats* player) {
 	}
 }
 
-void eventTwo(PlayerStats* player) {
+void eventTwo(PlayerStats playerStats[]) {
 
-	printf("As you are leaving the park, you spot a wallet lying on the ground. What do you do?\n");
 	printf("1. Pick up the wallet and look for identification to return it.\n");
 	printf("2. Pick up the wallet and keep it.\n");
 	printf("3. Leave the wallet alone.\n");
@@ -168,9 +167,8 @@ void eventTwo(PlayerStats* player) {
 }
 
 
-void eventThree(PlayerStats* player) {
+void eventThree(PlayerStats playerStats[]) {
 
-	printf("Some random event happens?\n");
 	printf("1. Options one.\n");
 	printf("2. Option two.\n");
 	printf("3. Option three.\n");
@@ -201,9 +199,8 @@ void eventThree(PlayerStats* player) {
 
 //Events 4-6 are job events
 
-void eventFour(PlayerStats* player) {
+void eventFour(PlayerStats playerStats[]) {
 
-	printf("You catch a shoplifter in the act. What do you do?\n");
 	printf("1. Try to apprehend them.\n");
 	printf("2. Call security.\n");
 	printf("3. Let them go.\n");
@@ -214,8 +211,8 @@ void eventFour(PlayerStats* player) {
 	switch (choice) {
 	case 1:
 		printf("You attempt to apprehend the shoplifter, but they resist and a scuffle ensues. You manage to hold onto them until security arrives, but you sustain some injuries and lose some energy.\n");
-		damagePlayer(3, player);
-		decreaseEnergy(4, player);
+		damagePlayer(3, playerStats);
+		decreaseEnergy(4, playerStats);
 		break;
 	case 2:
 		printf("You quickly call security and give them a description of the shoplifter. Security apprehends the shoplifter without incident. You feel relieved, but also a little shaken.\n");
@@ -231,9 +228,8 @@ void eventFour(PlayerStats* player) {
 	}
 }
 
-void eventFive(PlayerStats* player) {
+void eventFive(PlayerStats playerStats[]) {
 
-	printf("Two customers are fighting over the last TV in the store. What do you do?\n");
 	printf("1. Try to intervene and break up the fight.\n");
 	printf("2. Call security to handle the situation.\n");
 	printf("3. Stay out of it and let them resolve it on their own.\n");
@@ -260,8 +256,8 @@ void eventFive(PlayerStats* player) {
 	}
 }
 
-void eventSix(PlayerStats* player) {
-	printf("You are working at Walmart when you notice a group of teenagers attempting to steal some electronics. What do you do?\n");
+void eventSix(PlayerStats playerStats[]) {
+
 	printf("1. Confront the teenagers and try to stop them.\n");
 	printf("2. Alert your supervisor immediately.\n");
 	printf("3. Ignore the situation and continue working.\n");

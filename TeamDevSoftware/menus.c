@@ -120,7 +120,7 @@ char ParkMenu(void)
 char JobMenu(void)
 {
 	printf_s("\n");
-	printf_s("you are working at your part time job - Mckhonalds\n");
+	printf_s("you are working at your part time job - Walmart\n");
 
 	printf("\nTo choose a function, enter its label: \n");
 	printf("1. Go work\n");

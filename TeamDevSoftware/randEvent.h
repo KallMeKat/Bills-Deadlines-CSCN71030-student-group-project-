@@ -18,14 +18,14 @@ struct Encounter* selectEncounter(struct Encounter* head);
 int random_number();
 struct Encounter* initializeEncounters();
 struct Encounter* initializeJobEncounters();
-void handleJobEvent(struct Encounter* event, PlayerStats** player);
-void handleEvent(struct Encounter* event, PlayerStats** player);
-void eventOne(PlayerStats* player);
-void eventTwo(PlayerStats* player);
-void eventThree(PlayerStats* player);
-void eventFour(PlayerStats* player);
-void eventFive(PlayerStats* player);
-void eventSix(PlayerStats* player);
+void handleJobEvent(struct Encounter* event, PlayerStats playerStats[]);
+void handleEvent(struct Encounter* event, PlayerStats playerStats[]);
+void eventOne(PlayerStats playerStats[]);
+void eventTwo(PlayerStats playerStats[]);
+void eventThree(PlayerStats playerStats[]);
+void eventFour(PlayerStats playerStats[]);
+void eventFive(PlayerStats playerStats[]);
+void eventSix(PlayerStats playerStats[]);
 
 
 #endif
