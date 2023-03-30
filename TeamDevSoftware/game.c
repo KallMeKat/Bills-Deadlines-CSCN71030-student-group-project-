@@ -1,6 +1,7 @@
 //#define _CRT_SECURE_NO_WARNINGS
 #include "Menus.h"
 #include "game.h"
+#include "randEvent.h"
 #include "PlayerStats.h"
 #include <stdio.h>
 #include <stdbool.h>
@@ -159,6 +160,15 @@ void Park(PlayerStats arr[]) {
 
 			break;
 		case '2':
+
+			/////////////////Random Event///////////////
+			///////////////////////////////////////////
+			struct Encounter* head = initializeEncounters();
+			struct Encounter* randomEvent = selectEncounter(head);
+			printf("%s\n", randomEvent->description);
+			handleEvent(randomEvent, &player);
+			//////////////////////////////////////////
+			//////////////////////////////////////////
 
 
 			printf("you leave the park");
