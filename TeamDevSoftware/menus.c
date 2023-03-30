@@ -69,10 +69,10 @@ char ApartmentMenu(void)
 char CafeMenu(void)
 {
 	printf_s("\n");
-	printf_s("you are inside a lovely quant cafe with soft jazz playing in the background\n");
+	printf_s("you are inside a lovely quaint cafe with soft jazz playing in the background\n");
 
 	printf("\nTo choose a function, enter its label: \n");
-	printf("1. Go to study\n");
+	printf("1. Get some coffee\n");
 	printf("2. Leave\n");
 
 
