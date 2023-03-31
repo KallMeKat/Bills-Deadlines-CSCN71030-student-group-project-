@@ -4,7 +4,7 @@
 #include <time.h>
 #include <stdbool.h>
 
-
+#define RESET 10
 
 //hp 
 
@@ -16,6 +16,11 @@ int damagePlayer(int scale, PlayerStats stats[]) // decrements from players heal
 int healPlayer(int scale, PlayerStats stats[]) // increments players health by a specific amount
 {
 	return stats[PLAYER].hp += scale;
+}
+
+int resetHealth(PlayerStats stats[])
+{
+	return stats[PLAYER].hp = RESET;
 }
 
 //energy
@@ -31,7 +36,7 @@ int increaseEnergy(int scale, PlayerStats stats[])
 
 int resetEnergy(PlayerStats stats[])
 {
-	return stats[PLAYER].energy = 10;
+	return stats[PLAYER].energy = RESET;
 }
 
 
@@ -86,6 +91,12 @@ int levelStr(int scale, PlayerStats stats[])
 {
 	return stats[PLAYER].str += scale;
 }
+
+int loseStr(int scale, PlayerStats stats[])
+{
+	return stats[PLAYER].str -= scale;
+}
+
 
 
 

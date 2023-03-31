@@ -8,8 +8,8 @@ char printmenuMain(void)
 {
 	printf_s("\n");
 	printf_s("****************************\n");
-	printf_s("**        Working         **\n");
-	printf_s("**         Title          **\n");
+	printf_s("**    Bills & Deadlines   **\n");
+	printf_s("**                        **\n");
 	printf_s("****************************\n");
 
 	printf("\nTo choose a function, enter its label: \n");

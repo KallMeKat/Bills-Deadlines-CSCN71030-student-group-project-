@@ -60,6 +60,8 @@ int loseCha(int scale, PlayerStats stats[]);
 
 int levelStr(int scale, PlayerStats stats[]);
 
+int loseStr(int scale, PlayerStats stats[]);
+
 
 //print
 

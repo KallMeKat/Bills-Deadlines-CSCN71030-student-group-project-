@@ -22,8 +22,6 @@ PlayerStats player[1] = { '\0' };
 
 int main(void)
 {
-    printf("starting...\n");
-
     bool continueProgram = true;
     while (continueProgram) {
 
