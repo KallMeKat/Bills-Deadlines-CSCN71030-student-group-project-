@@ -3,8 +3,10 @@
 #include "game.h"
 #include "randEvent.h"
 #include "PlayerStats.h"
+#include "Endings.h"
 #include <stdio.h>
 #include <stdbool.h>
+#define FINALDAY 7
 
 ///////////////// AREAS ///////////////////
 void Apartment(PlayerStats arr[]) {
@@ -24,6 +26,14 @@ void Apartment(PlayerStats arr[]) {
 			resetEnergy(arr);
 
 			printStats(arr);
+
+			if (arr[PLAYER].day == FINALDAY) {
+				endingsFunction(arr);
+
+
+				//add way to either remove to main or reset all stats for a new game version 
+
+			}
 
 			break;
 		case '2':
