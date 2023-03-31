@@ -3,6 +3,8 @@
 
 #define PLAYER 0
 
+#define WAIT 2000
+
 
 typedef struct playerstats
 {
@@ -70,7 +72,11 @@ void resetAll(PlayerStats player[]);
 void printStats(PlayerStats stats[]);
 
 
-//UNIMPLEMENTED: 
-/*
-bool diceRoll(int stat);
-*/
+//dice roll
+
+bool DiceRollCharisma(PlayerStats stats[]);
+
+bool DiceRollStrength(PlayerStats stats[]);
+
+bool DiceRollIntelligence(PlayerStats stats[]);
+
