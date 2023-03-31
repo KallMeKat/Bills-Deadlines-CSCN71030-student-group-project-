@@ -37,16 +37,16 @@ int main(void)
             {
                 //initalize stats
 
-                player[0].energy = 10;
-                player[0].hp = 10;
-                player[0].day = 1;
+                player[PLAYER].energy = 10;
+                player[PLAYER].hp = 10;
+                player[PLAYER].day = 0;
 
 
-                player[0].cash = 0;
-                player[0].time = 0;
-                player[0].cha = 1;
-                player[0].str = 1;
-                player[0].intl = 1;
+                player[PLAYER].cash = 0;
+                player[PLAYER].time = 0;
+                player[PLAYER].cha = 0;
+                player[PLAYER].str = 0;
+                player[PLAYER].intl = 0;
 
             }
             else {

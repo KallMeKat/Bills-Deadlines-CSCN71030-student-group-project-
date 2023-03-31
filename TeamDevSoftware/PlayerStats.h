@@ -62,6 +62,8 @@ int levelStr(int scale, PlayerStats stats[]);
 
 int loseStr(int scale, PlayerStats stats[]);
 
+void resetAll(PlayerStats player[]);
+
 
 //print
 

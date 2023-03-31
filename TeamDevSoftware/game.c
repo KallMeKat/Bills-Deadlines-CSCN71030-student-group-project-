@@ -6,7 +6,7 @@
 #include "Endings.h"
 #include <stdio.h>
 #include <stdbool.h>
-#define FINALDAY 7
+#define FINALDAY 14
 
 ///////////////// AREAS ///////////////////
 void Apartment(PlayerStats arr[]) {
@@ -27,12 +27,26 @@ void Apartment(PlayerStats arr[]) {
 
 			printStats(arr);
 
+			//count down to final day function here
+			printf("***********************************************************************************************\n");
+			printf("** You have %d days until your rents due and your final exam approaches. Prepare yourself.   **\n", FINALDAY - arr[PLAYER].day);
+			printf("** You should really study for you final exam and make enough money for rent (140$)...       **\n");
+			printf("***********************************************************************************************\n");
+
+
+
+			//other day events here 
+				//if 3 midterm for ex
+
+
+
 			if (arr[PLAYER].day == FINALDAY) {
+				
 				endingsFunction(arr);
 
+				resetAll(arr); //resets save file stats
 
-				//add way to either remove to main or reset all stats for a new game version 
-
+				main(); //calls back to main menu
 			}
 
 			break;

@@ -97,6 +97,20 @@ int loseStr(int scale, PlayerStats stats[])
 	return stats[PLAYER].str -= scale;
 }
 
+void resetAll(PlayerStats player[]) 
+{
+
+	player[PLAYER].energy = 10;
+	player[PLAYER].hp = 10;
+	player[PLAYER].day = 0;
+
+
+	player[PLAYER].cash = 0;
+	player[PLAYER].time = 0;
+	player[PLAYER].cha = 0;
+	player[PLAYER].str = 0;
+	player[PLAYER].intl = 0;
+}
 
 
 
