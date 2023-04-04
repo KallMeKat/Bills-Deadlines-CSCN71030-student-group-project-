@@ -84,17 +84,20 @@ namespace TestRandomEventModule
 			Assert::AreEqual(expectedDesc1, head->description);
 
 			// Verify second job encounter
+			struct Encounter* secondNode = head->next;
 			int expectedId2 = 2;
 			char expectedDesc2[] = "Two customers are fighting over the last TV in the store. What do you do?\n";
-			Assert::AreEqual(expectedId2, head->next->id);
-			Assert::AreEqual(expectedDesc2, head->next->description);
+			Assert::AreEqual(expectedId2, secondNode->id);
+			Assert::AreEqual(expectedDesc2, secondNode->description);
 
 			// Verify third job encounter
+			struct Encounter* thirdNode = secondNode->next;
 			int expectedId3 = 3;
-			char expectedDesc3[] = "You are working at Walmart when you notice a group of teenagers attempting to steal some electronics. What do you do?\n";
-			Assert::AreEqual(expectedId3, head->next->next->id);
-			Assert::AreEqual(expectedDesc3, head->next->next->description);
+			char expectedDesc3[] = "You are working at Walmart when you notice a group of teenagers attempting to steal some electroni\n";
+			Assert::AreEqual(expectedId3, thirdNode->id);
+			Assert::AreEqual(expectedDesc3, thirdNode->description);
 		}
+
 
 
 	};

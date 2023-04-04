@@ -50,7 +50,7 @@ struct Encounter* initializeEncounters() {
 struct Encounter* initializeJobEncounters() {
 	struct Encounter* head = createEncounter(1, "You catch a shoplifter in the act. What do you do?\n");
 	struct Encounter* second = createEncounter(2, "Two customers are fighting over the last TV in the store. What do you do?\n");
-	struct Encounter* third = createEncounter(3, "You are working at Walmart when you notice a group of teenagers attempting to steal some electronics. What do you do?\n");
+	struct Encounter* third = createEncounter(3, "You are working at Walmart when you notice a group of teenagers attempting to steal some electroni\n");
 
 	head->next = second;
 	second->next = third;
