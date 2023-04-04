@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
+#include <Windows.h>
 
 #define RESET 10
 
@@ -97,6 +98,20 @@ int loseStr(int scale, PlayerStats stats[])
 	return stats[PLAYER].str -= scale;
 }
 
+void resetAll(PlayerStats player[]) 
+{
+
+	player[PLAYER].energy = 10;
+	player[PLAYER].hp = 10;
+	player[PLAYER].day = 0;
+
+
+	player[PLAYER].cash = 0;
+	player[PLAYER].time = 0;
+	player[PLAYER].cha = 0;
+	player[PLAYER].str = 0;
+	player[PLAYER].intl = 0;
+}
 
 
 
@@ -105,7 +120,7 @@ int loseStr(int scale, PlayerStats stats[])
 
 void printStats(PlayerStats stats[])
 {
-	printf("\n\n You have %d HP, %d ENERGY. The TIME is %d and it is DAY %d. You have %d CASH in your pocket \n\n", stats[PLAYER].hp, stats[PLAYER].energy, stats[PLAYER].time, stats[PLAYER].day, stats[PLAYER].cash);
+	printf("\n\nYou have %d HP, %d ENERGY. The TIME is %d and it is DAY %d. You have %d CASH in your pocket \n\n", stats[PLAYER].hp, stats[PLAYER].energy, stats[PLAYER].time, stats[PLAYER].day, stats[PLAYER].cash);
 
 	printf("Your Stats: \n");
 	printf("\nSTR %d\n", stats[PLAYER].str);
@@ -120,20 +135,69 @@ void printStats(PlayerStats stats[])
 
 //unimplemented
 
-/*
-
-bool diceRoll(int stat) // action probability, probability changes based on players level in that skill
+bool DiceRollCharisma(PlayerStats stats[]) // action probability, probability changes based on players level in that skill
 {
-	int random = rand() % 100 * stat;
+	printf("\n\nDICE ROLL!\n\n");
+	Sleep(WAIT);
+
+	int random = rand() % 100 * stats->cha;
 	if (random < 50)
 	{
+
+		printf("FAIL\n");
+
 		return false;
 	}
 	else
 	{
+		printf("PASS\n");
+
 		return true;
 	}
 
 }
 
-*/
+bool DiceRollStrength(PlayerStats stats[]) // action probability, probability changes based on players level in that skill
+{
+	printf("\n\nDICE ROLL!\n\n");
+	Sleep(WAIT);
+
+	int random = rand() % 100 * stats->str;
+	if (random < 50)
+	{
+		printf("FAIL\n");
+
+		return false;
+	}
+	else
+	{
+
+		printf("PASS\n");
+
+		return true;
+	}
+
+}
+
+bool DiceRollIntelligence(PlayerStats stats[]) // action probability, probability changes based on players level in that skill
+{
+	printf("\n\nDICE ROLL!\n\n");
+	Sleep(WAIT);
+
+	int random = rand() % 100 * stats->intl;
+	if (random < 50)
+	{
+
+		printf("FAIL\n");
+
+		return false;
+	}
+	else
+	{
+
+		printf("PASS\n");
+
+		return true;
+	}
+
+}

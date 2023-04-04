@@ -3,6 +3,8 @@
 
 #define PLAYER 0
 
+#define WAIT 2000
+
 
 typedef struct playerstats
 {
@@ -62,13 +64,19 @@ int levelStr(int scale, PlayerStats stats[]);
 
 int loseStr(int scale, PlayerStats stats[]);
 
+void resetAll(PlayerStats player[]);
+
 
 //print
 
 void printStats(PlayerStats stats[]);
 
 
-//UNIMPLEMENTED: 
-/*
-bool diceRoll(int stat);
-*/
+//dice roll
+
+bool DiceRollCharisma(PlayerStats stats[]);
+
+bool DiceRollStrength(PlayerStats stats[]);
+
+bool DiceRollIntelligence(PlayerStats stats[]);
+

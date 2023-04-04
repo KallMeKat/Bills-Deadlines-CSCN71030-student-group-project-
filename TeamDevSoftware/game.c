@@ -3,8 +3,14 @@
 #include "game.h"
 #include "randEvent.h"
 #include "PlayerStats.h"
+#include "Endings.h"
 #include <stdio.h>
 #include <stdbool.h>
+#include <windows.h>
+
+
+
+#define FINALDAY 14
 
 ///////////////// AREAS ///////////////////
 void Apartment(PlayerStats arr[]) {
@@ -19,11 +25,35 @@ void Apartment(PlayerStats arr[]) {
 		case '1':
 			printf("you go to sleep, you fill energized (plus to next day & energy)\n");
 
+
 			//reset energy, time and increase day
 			increaseDay(1, arr);
 			resetEnergy(arr);
 
 			printStats(arr);
+
+
+
+			//count down to final day function here
+			printf("\n***********************************************************************************************\n");
+			printf("** You have %d days until your rents due and your final exam approaches. Prepare yourself.   **\n", FINALDAY - arr[PLAYER].day);
+			printf("** You should really study for you final exam and make enough money for rent (140$)...       **\n");
+			printf("***********************************************************************************************\n");
+
+
+			//other day events here 
+				//if 3 midterm for ex
+
+
+
+			if (arr[PLAYER].day == FINALDAY) {
+				
+				endingsFunction(arr);
+
+				resetAll(arr); //resets save file stats
+
+				main(); //calls back to main menu
+			}
 
 			break;
 		case '2':
@@ -58,14 +88,31 @@ void Cafe(PlayerStats arr[]) {
 			}
 			if (arr[PLAYER].cash <= 5)
 			{
-				printf("You go to pay only to realize you dont even have the 5$ to pay. You embarrassingly walk feeling less charismatic then before.");
+				printf("You find out only after ordering you dont even have the money to pay.");
 
+
+
+				bool option = DiceRollCharisma(arr);
+
+				if (option == true) {
+
+					printf("\nyour strong charisma allows you to talk your way out of the embarrasment and you keep your charisma stat\n");
+					Sleep(WAIT);
+
+					return;
+				}
+
+
+				printf("\nYou embarrassingly walk away after tripping over your worlds trying to explain that you cant pay. You are feeling less charismatic then before.\n");
+				Sleep(WAIT);
 
 				loseCha(1, arr);
 
 				increaseTime(1, arr);
 
 				printStats(arr);
+
+
 
 				return;
 			}
@@ -80,7 +127,6 @@ void Cafe(PlayerStats arr[]) {
 			increaseEnergy(1, arr);
 
 			printStats(arr);
-
 
 			break;
 		case '2':
@@ -121,6 +167,16 @@ void School(PlayerStats arr[]) {
 
 			printf("you go to your classes incredibly bored about the material but feel a bit more understnading the material\n");
 
+			bool option = DiceRollIntelligence(arr);
+
+			if (option = true) 
+			{
+				printf("You feel as if you're beginning to understand the material better. You gain an extra intelligence point\n");
+				levelIntl(1, arr);
+			}
+			
+			printf("You still struggle with teh material but feel smarter anyways.. \n");
+
 			decreaseEnergy(5, arr);
 			levelIntl(1, arr);
 			increaseTime(1, arr);
@@ -130,7 +186,7 @@ void School(PlayerStats arr[]) {
 			break;
 		case '2':
 
-			printf("you leave the school");
+			printf("you leave the school\n");
 
 			continueProgram = false;
 			break;
@@ -168,8 +224,6 @@ void Park(PlayerStats arr[]) {
 			increaseTime(1, arr);
 
 			printStats(arr);
-
-
 			break;
 		case '2':
 
@@ -209,7 +263,7 @@ void Job(PlayerStats arr[]) {
 
 			if (arr[0].time > 6)
 			{
-				printf("Shift is over for the day\n");
+				printf("There are no more shifts available today\n");
 				return;
 			}
 			if (arr[PLAYER].energy <= 0)
@@ -234,7 +288,6 @@ void Job(PlayerStats arr[]) {
 			increaseTime(1, arr);
 
 			printStats(arr);
-
 			break;
 		case '2':
 
