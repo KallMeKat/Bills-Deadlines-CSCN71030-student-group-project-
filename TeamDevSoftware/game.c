@@ -35,7 +35,7 @@ void Apartment(PlayerStats arr[]) {
 
 
 			//count down to final day function here
-			printf("\n***********************************************************************************************\n");
+			printf("\n*********************************************************************************************\n");
 			printf("** You have %d days until your rents due and your final exam approaches. Prepare yourself.   **\n", FINALDAY - arr[PLAYER].day);
 			printf("** You should really study for you final exam and make enough money for rent (140$)...       **\n");
 			printf("***********************************************************************************************\n");
