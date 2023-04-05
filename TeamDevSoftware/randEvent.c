@@ -79,6 +79,8 @@ void handleEvent(struct Encounter* event, PlayerStats playerStats[]) {
 	}
 }
 
+//Job event switch case menu
+
 
 void handleJobEvent(struct Encounter* event, PlayerStats playerStats[]) {
 	switch (event->id) {
