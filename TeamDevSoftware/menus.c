@@ -137,10 +137,10 @@ char JobMenu(void)
 
 void PrintInfo(void) {
 
-	printf("Welcome to the insert name here simulator!\n\n");
+	printf("Welcome to the Date & Deadlines!\n\n");
 	printf("The main goal is to pay your rent on time and have the highest stats\n\n");
 	printf("The game mechanics are simple: just type in a number to traverse to a location\n\n");
 	printf("But don't dillydally around, you have a limited time per day and also need to pay your rent within 2 weeks!\n\n");
-	printf("There are multiple endings based on your stats so try to get them all, and manage your tiem wisely.\n\n");
+	printf("There are multiple endings based on your stats so try to get them all, and manage your time wisely.\n\n");
 	printf("an you get the ultimate endin? its up to you :3 \n\nGood luck and have fun!\n\n");
 }
