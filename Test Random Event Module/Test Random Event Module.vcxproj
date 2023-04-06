@@ -100,7 +100,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>C:\Users\aleks\source\repos\CSCN71030-23W-SEC1-GROUP1\TeamDevSoftware\x64\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Choices.obj;Endings.obj;FileIO.obj;game.obj;main.obj;menus.obj;PlayerStats.obj;randEvent.obj;randEventSwitch.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Endings.obj;FileIO.obj;game.obj;main.obj;menus.obj;PlayerStats.obj;randEvent.obj;randEventSwitch.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

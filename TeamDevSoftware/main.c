@@ -11,6 +11,7 @@
 #include "Menus.h"
 #include "game.h"
 #include "randEvent.h"
+#include <stdlib.h>
 
 ///////////////// MAIN ///////////////////
 
@@ -20,8 +21,13 @@ size_t size = sizeof(PlayerStats);
 PlayerStats player[1] = { '\0' };
 
 
-int main(void)
-{
+int main(int argc, char* argv[])
+{   
+    if (argc != 2)         
+    {
+        fprintf(stderr, "Usage: %s source destination\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
     bool continueProgram = true;
     while (continueProgram) {
 
@@ -33,7 +39,7 @@ int main(void)
 
 
             //open file
-            if ((fp = fopen("player.dat", "r")) == NULL)
+                if ((fp = fopen(argv[1], "r")) == NULL)
             {
                 //initalize stats
 
@@ -53,8 +59,6 @@ int main(void)
                 fread(player, size, 1, fp);
                 fclose(fp);
             }
-
-
 
             MainGame(player);
 
@@ -78,7 +82,7 @@ int main(void)
 
     //save file
         //if the file does not have any contents then there was a save failure 
-    if ((fp = fopen("player.dat", "w")) == NULL)
+    if ((fp = fopen(argv[1], "w")) == NULL)
         printf("SAVE FAILURE");
     else //write to file
     {
