@@ -98,6 +98,11 @@ int loseStr(int scale, PlayerStats stats[])
 	return stats[PLAYER].str -= scale;
 }
 
+int loseIntl(int scale, PlayerStats stats[])
+{
+	return stats[PLAYER].intl -= scale;
+}
+
 void resetAll(PlayerStats player[]) 
 {
 

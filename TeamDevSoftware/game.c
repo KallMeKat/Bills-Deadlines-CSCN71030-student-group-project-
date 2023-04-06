@@ -7,11 +7,12 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <windows.h>
-
+#include <string.h>
 
 
 #define FINALDAY 14
-
+#define MIDTERM 7
+#define MAXCHAR 100
 ///////////////// AREAS ///////////////////
 void Apartment(PlayerStats arr[]) {
 
@@ -47,12 +48,56 @@ void Apartment(PlayerStats arr[]) {
 
 
 			if (arr[PLAYER].day == FINALDAY) {
-				
+
 				endingsFunction(arr);
 
 				resetAll(arr); //resets save file stats
 
 				main(); //calls back to main menu
+			}
+
+			if(arr[PLAYER].day == MIDTERM)
+			{
+				printf("\n*********************************************************************************************\n");
+				printf("** Today you have your Comp Sci Midterm and its about bitwise operators and memcpy.			 **\n");
+				printf("** You feel nervous go into the exam with confidence...								         **\n");
+				printf("***********************************************************************************************\n");
+
+				int a = 12;
+				int b = 25;
+				int c = a & b;
+				int input;
+				printf("The first question of the exam is about bitwise operations (oh no), What's the result of %d & %d\n", a, b);
+				scanf("%d", &input);
+				if (input == 8)
+				{
+					printf("You feel confident in your answer, you feel smarter\n");
+					levelIntl(1, arr);
+				}
+				else
+				{
+					printf("You don't feel confident in your answer, you feel dumber\n");
+					loseIntl(1, arr);
+				}
+				char a[] = "FirstString";
+				char b[] = "SecondString";
+				char c[] = memcpy(a, b, 5);
+				char Sinput[MAXCHAR];
+				printf("The second question of the exam is about bitwise operations (oh no), What's the result of memcpy('FirstString', 'SecondString', 5) \n");
+				scanf("%s", &Sinput);
+				if (strcmp(Sinput, c))
+				{
+					printf("You feel confident in your answer, you feel smarter\n");
+					levelIntl(1, arr);
+				}
+				else
+				{
+					printf("You don't feel confident in your answer, you feel dumber\n");
+					loseIntl(1, arr);
+				}
+				printf("You continue with the rest of the test\n");
+				decreaseEnergy(3, arr);
+
 			}
 
 			break;
@@ -169,12 +214,12 @@ void School(PlayerStats arr[]) {
 
 			bool option = DiceRollIntelligence(arr);
 
-			if (option = true) 
+			if (option = true)
 			{
 				printf("You feel as if you're beginning to understand the material better. You gain an extra intelligence point\n");
 				levelIntl(1, arr);
 			}
-			
+
 			printf("You still struggle with teh material but feel smarter anyways.. \n");
 
 			decreaseEnergy(5, arr);

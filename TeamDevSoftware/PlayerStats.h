@@ -55,6 +55,7 @@ int decreaseCASH(int scale, PlayerStats stats[]);
 //level stats
 
 int levelIntl(int scale, PlayerStats stats[]);
+int loseInlt(int scale, PlayerStats stats[]);
 
 int levelCha(int scale, PlayerStats stats[]);
 
