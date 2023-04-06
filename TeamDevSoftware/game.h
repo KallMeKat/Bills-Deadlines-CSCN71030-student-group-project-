@@ -16,4 +16,3 @@ void School(PlayerStats arr[]);
 void Park(PlayerStats arr[]);
 
 void Job(PlayerStats arr[]);
-int loseInlt(int scale, PlayerStats stats[]);

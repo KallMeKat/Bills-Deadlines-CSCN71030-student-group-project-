@@ -12,7 +12,7 @@
 
 #define FINALDAY 14
 #define MIDTERM 7
-#define MAXCHAR 100
+
 ///////////////// AREAS ///////////////////
 void Apartment(PlayerStats arr[]) {
 
@@ -79,13 +79,13 @@ void Apartment(PlayerStats arr[]) {
 					printf("You don't feel confident in your answer, you feel dumber\n");
 					loseIntl(1, arr);
 				}
-				char a[] = "FirstString";
-				char b[] = "SecondString";
-				char c[] = memcpy(a, b, 5);
+				char Sa[MAXCHAR] = "FirstString";
+				char Sb[MAXCHAR] = "SecondString";
+				
 				char Sinput[MAXCHAR];
 				printf("The second question of the exam is about bitwise operations (oh no), What's the result of memcpy('FirstString', 'SecondString', 5) \n");
 				scanf("%s", &Sinput);
-				if (strcmp(Sinput, c))
+				if (strcmp(Sinput, memcpy(Sa, Sb, 5)) == 0)
 				{
 					printf("You feel confident in your answer, you feel smarter\n");
 					levelIntl(1, arr);
