@@ -1,22 +1,24 @@
 #pragma once
 #include <stdbool.h>
 
+//player has an index of 0 to pass arrays
 #define PLAYER 0
 
+//the wait variable for the dice roll to make it wait a couple seconds before outputing 
 #define WAIT 2000
 
-
+//the stats of the player
 typedef struct playerstats
 {
 
-	//very basics for working overworld:
+	//very basic stats such as teh energy and he day to keep teh game going 
 	int energy;
 	int day;
 	int cash;
 	int time;
 
 
-	//others stats here - these are unimplemented 
+	//others stats that effect the endings such as hp or strength 
 	unsigned int hp;
 	unsigned int str;
 	unsigned int cha;
@@ -68,12 +70,12 @@ int loseStr(int scale, PlayerStats stats[]);
 void resetAll(PlayerStats player[]);
 
 
-//print
+//print all the stats
 
 void printStats(PlayerStats stats[]);
 
 
-//dice roll
+//dice roll for the main stats 
 
 bool DiceRollCharisma(PlayerStats stats[]);
 

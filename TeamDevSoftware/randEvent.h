@@ -9,10 +9,10 @@ struct Encounter {
 	int id;
 	char description[100];
 	struct Encounter* next;
-	//Add other values that come with the encounter struct that affect your player struct, such as your money, morale etc.
+	
 };
 
-
+//the function headers to create the encounters and to handle the events 
 struct Encounter* createEncounter(int id, char desc[]);
 struct Encounter* selectEncounter(struct Encounter* head);
 int random_number();

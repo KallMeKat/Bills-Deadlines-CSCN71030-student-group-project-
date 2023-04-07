@@ -1,6 +1,6 @@
 #pragma once
 
-
+//function headers for the print menus 
 char printmenuMain(void);
 
 char OverWorld(void);

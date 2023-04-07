@@ -103,6 +103,7 @@ int loseIntl(int scale, PlayerStats stats[])
 	return stats[PLAYER].intl -= scale;
 }
 
+//resets all stats when the user starts a new game 
 void resetAll(PlayerStats player[]) 
 {
 
@@ -134,11 +135,6 @@ void printStats(PlayerStats stats[])
 
 }
 
-
-
-
-
-//unimplemented
 
 bool DiceRollCharisma(PlayerStats stats[]) // action probability, probability changes based on players level in that skill
 {

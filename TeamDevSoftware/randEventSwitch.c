@@ -1,4 +1,4 @@
-//Group Info Here
+//file that was used for testing 
 
 #include <stdio.h>
 #include "randEvent.h"

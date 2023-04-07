@@ -15,12 +15,12 @@
 
 ///////////////// MAIN ///////////////////
 
-
+//file creation 
 FILE* fp;
 size_t size = sizeof(PlayerStats);
 PlayerStats player[1] = { '\0' };
 
-
+//main with the cimmand line arguments 
 int main(int argc, char* argv[])
 {   
     if (argc != 2)         
@@ -35,6 +35,7 @@ int main(int argc, char* argv[])
 
         switch (choice)
         {
+        //if the user chooses to start the game a file will be created 
         case '1':
 
 
@@ -64,10 +65,12 @@ int main(int argc, char* argv[])
 
             break;
 
+        //if the user wants to see the game information they choose option 2 
         case '2': printf("info program...\n\n");
             PrintInfo();
             break;
 
+        //option 3 exits out of the program 
         case '3':
             continueProgram = false;
             break;

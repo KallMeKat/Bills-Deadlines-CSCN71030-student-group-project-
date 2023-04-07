@@ -135,6 +135,7 @@ char JobMenu(void)
 	return choice;
 }
 
+//menu to print the inforamtion of the program 
 void PrintInfo(void) {
 
 	printf("Welcome to the Date & Deadlines!\n\n");

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "PlayerStats.h"
 
+//the different endings based on how much money the user made and also the stats that they had. The higher the stats the better the ending
 void endingsFunction(PlayerStats stats[]) {
 
     if (stats[PLAYER].cash == 140 && stats[PLAYER].str == 10 && stats[PLAYER].cha == 10 && stats[PLAYER].intl == 10) {
