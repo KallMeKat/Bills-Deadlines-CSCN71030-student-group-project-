@@ -20,12 +20,12 @@ FILE* fp;
 size_t size = sizeof(PlayerStats);
 PlayerStats player[1] = { '\0' };
 
-//main with the cimmand line arguments 
-int main(int argc, char* argv[])
+//main with the command line arguments 
+int main(int argc, char* argv[])//set as file name as command like argument "Filename.dat"
 {   
     if (argc != 2)         
     {
-        fprintf(stderr, "Usage: %s source destination\n", argv[0]);
+        fprintf(stderr, "\n\nPlease insert a save file via command\n\nUsage: %s source destination\n\n FILE NAME 'PLAYER.DAT'\n\n", argv[0]);
         exit(EXIT_FAILURE);
     }
     bool continueProgram = true;
