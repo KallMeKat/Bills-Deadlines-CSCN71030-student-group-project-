@@ -33,6 +33,8 @@ void Apartment(PlayerStats arr[]) {
 			increaseDay(1, arr);
 			resetEnergy(arr);
 
+			arr[PLAYER].time = 0;
+
 			printStats(arr);
 
 
@@ -48,7 +50,7 @@ void Apartment(PlayerStats arr[]) {
 
 				endingsFunction(arr);
 
-				resetAll(arr); //resets save file stats
+				//resetAll(arr); //resets save file stats
 
 				main(); //calls back to main menu
 			}
